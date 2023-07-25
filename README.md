@@ -1,4 +1,4 @@
-# Sum experiment
+# Python number summarize experiment
 Meassuring the time to summarize one hundred million integers in a python list using native Python, a C extension and NymPy.
 
 ## Methods:
