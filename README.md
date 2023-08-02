@@ -26,7 +26,7 @@ Using the built in Python sum() method
 Build the C extension and run the experiment with:
 
 ```sh
-make && make run
+make && make install run
 ```
 
 ## Results on WSL2 on a Intel i5 10400F CPU
