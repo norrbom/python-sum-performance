@@ -2,43 +2,35 @@ import time
 import numpy as np
 import csum
 
-py_list = list(range(100000000))
+range = range(100000000)
+py_list = list(range)
+arrange = np.arange(100000000)
 
-results = {
-    "py_simple_sum": 0,
-    "np.sum": 0,
-    "csum.sum_arr": 0,
-    "csum.sum_int_arr": 0,
-    "py_sum": 0,
-}
+def print_result(method: str, summary: int, result: int):
+    print(f"{method:16}\t{result}\t{summary}")
 
-
+summary = 0
 start = time.time()
-py_loop_sum = 0
 for i in py_list:
-    py_loop_sum += i
+    summary += i
 end = time.time()
-results["py_simple_sum"] = end - start
+print_result("py_list_sum", end - start, summary)
 
 start = time.time()
-np_sum = np.sum(py_list)
+summary = csum.sum_arr(py_list)
 end = time.time()
-results["np.sum"] = end - start
+print_result("csum.sum_arr", end - start, summary)
+start = time.time()
+summary = csum.sum_int_arr(py_list)
+end = time.time()
+print_result("csum.sum_int_arr", end - start, summary)
 
 start = time.time()
-sum_arr = csum.sum_arr(py_list)
+summary = sum(py_list)
 end = time.time()
-results["csum.sum_arr"] = end - start
+print_result("py_sum", end - start, summary)
 
 start = time.time()
-sum_int_arr = csum.sum_int_arr(py_list)
+summary = np.sum(arrange)
 end = time.time()
-results["csum.sum_int_arr"] = end - start
-
-start = time.time()
-py_sum = sum(py_list)
-end = time.time()
-results["py_sum"] = end - start
-
-for r in results:
-    print ("{:<16} {:<19} {:<7}".format(r, results[r], "seconds"))
+print_result("np.sum_arrange", end - start, summary)

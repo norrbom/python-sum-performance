@@ -3,11 +3,8 @@ Meassuring the time to summarize one hundred million integers in a python list u
 
 ## Methods:
 
-### py_simple_sum
+### py_list_sum
 Looping through the list with python
-
-### np.sum
-Using the NumPy np.sum()
 
 ### csum.sum_arr
 Using a custom C extension that does type checking and can summarize a combination of floats and integers in a list.
@@ -17,6 +14,9 @@ Using a custom C extension to summarize integers in a list.
 
 ### py_sum
 Using the built in Python sum() method
+
+### np.sum_arrange
+Using the NumPy np.sum() and np.arrange
 
 ## Usage
 
@@ -32,9 +32,9 @@ make && make install run
 ## Results on WSL2 on a Intel i5 10400F CPU
 
 ```sh
-py_simple_sum    5.694443464279175   seconds
-np.sum           3.121760368347168   seconds
-csum.sum_arr     1.1044163703918457  seconds
-csum.sum_int_arr 0.6375510692596436  seconds
-py_sum           0.43586254119873047 seconds
+py_list_sum             4999999950000000        6.1064629554748535
+csum.sum_arr            4999999950000000        1.5754830837249756
+csum.sum_int_arr        4999999950000000        0.7434167861938477
+py_sum                  4999999950000000        0.4117319583892822
+np.sum_arrange          4999999950000000        0.04780292510986328
 ```
