@@ -22,7 +22,7 @@ PyObject *sum_float_arr(PyObject* self, PyObject* args) {
     return PyFloat_FromDouble(total);
 }
 
-PyObject *sum_int_arr(PyObject* self, PyObject* args) {
+PyObject *sum_int_list(PyObject* self, PyObject* args) {
     PyObject *pList;
     PyObject *pItem;
     Py_ssize_t n;
@@ -46,7 +46,7 @@ PyObject *sum_int_arr(PyObject* self, PyObject* args) {
     return PyLong_FromLong(total);
 }
 
-PyObject *sum_arr(PyObject* self, PyObject* args) {
+PyObject *sum_list(PyObject* self, PyObject* args) {
     PyObject *pList;
     PyObject *pItem;
     Py_ssize_t n;
@@ -83,8 +83,8 @@ PyObject *sum_arr(PyObject* self, PyObject* args) {
 
 static PyMethodDef methods[] = {
     {"sum_float_arr", sum_float_arr, METH_VARARGS, "sum of an array of floats"},
-    {"sum_int_arr", sum_int_arr, METH_VARARGS, "sum of an array of integers"},
-    {"sum_arr", sum_arr, METH_VARARGS, "sum of two numbers with type checking"},
+    {"sum_int_list", sum_int_list, METH_VARARGS, "sum of an array of integers"},
+    {"sum_list", sum_list, METH_VARARGS, "sum of two numbers with type checking"},
     {NULL, NULL, 0, NULL}
 };
 

@@ -12,12 +12,12 @@ install:
 
 .PHONY: test
 test:
-	. ./venv/bin/activate && python3 -c "import csum; print(csum.sum_int_arr([1, 3]))"
+	. ./venv/bin/activate && python3 -c "import csum; print(csum.sum_int_list([1, 3]))"
 	. ./venv/bin/activate && python3 -c "import csum; print(csum.sum_float_arr([0.01, 0.03]))"
-	. ./venv/bin/activate && python3 -c "import csum; print(csum.sum_arr([1, 3]))"
-	. ./venv/bin/activate && python3 -c "import csum; print(csum.sum_arr([0.01, 0.03]))"
-	. ./venv/bin/activate && python3 -c "import csum; print(csum.sum_arr([0.01, 0.03, 1, 3]))"
-	. ./venv/bin/activate && python3 -c "import csum; print(csum.sum_arr([1, 3, 0.01, 0.03]))"
+	. ./venv/bin/activate && python3 -c "import csum; print(csum.sum_list([1, 3]))"
+	. ./venv/bin/activate && python3 -c "import csum; print(csum.sum_list([0.01, 0.03]))"
+	. ./venv/bin/activate && python3 -c "import csum; print(csum.sum_list([0.01, 0.03, 1, 3]))"
+	. ./venv/bin/activate && python3 -c "import csum; print(csum.sum_list([1, 3, 0.01, 0.03]))"
 
 .PHONY: run
 run:
