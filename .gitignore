@@ -1,2 +1,4 @@
 **/*.so
 **/venv
+*cache_*
+*_cache*
