@@ -4,7 +4,7 @@ Measuring the time to summarize one hundred million integers, using native Pytho
 
 ## C reference
 
-Single process naive C implementation wall clock time ~ 0.360s
+Single process naive C implementation wall clock time ~ 0.262s
 
 ```sh
 make sum
