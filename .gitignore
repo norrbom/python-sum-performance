@@ -2,3 +2,5 @@
 **/venv
 *cache_*
 *_cache*
+sum
+.vscode/

@@ -10,7 +10,7 @@ DECIMALS = 2
 
 def print_header(method: str) -> None:
     print(
-        f"\n{method:28}{'total_time':<16}{'compute_time':<16}{'malloc_time':<16}{'result':<16}"
+        f"\n{method:28}{'total(s)':<16}{'compute(s)':<16}{'memory init(s)':<16}{'result':<16}"
     )
     print(
         f"{'--------------------':28}{'----------':<16}{'------------':<16}{'-----------':<16}{'-------':<16}"
@@ -18,10 +18,10 @@ def print_header(method: str) -> None:
 
 
 def print_results(
-    method: str, compute_time: float, malloc_time: float, result: int
+    method: str, time_compute: float, time_mem: float, result: int
 ) -> None:
     print(
-        f"{method:28}{round(malloc_time+compute_time, DECIMALS):<16}{round(compute_time, DECIMALS):<16}{round(malloc_time, DECIMALS):<16}{result:<16}"
+        f"{method:28}{round(time_mem + time_compute, DECIMALS):<16}{round(time_compute, DECIMALS):<16}{round(time_mem, DECIMALS):<16}{result:<16}"
     )
 
 
@@ -40,10 +40,9 @@ if __name__ == "__main__":
     for func in functions:
         print_results(func.__name__, *func(MIN, MAX))
 
-    print_header("multi process")
-
     cores = CORES
     while cores > 1:
+        print_header(f"multi process ({cores}/{CORES})")
         slices = [
             ((i * MAX) // cores + 1, ((i + 1) * MAX) // cores) for i in range(0, cores)
         ]
@@ -52,15 +51,15 @@ if __name__ == "__main__":
                 time_start = time.time()
                 result = 0
                 results_tuple = pool.starmap(func, slices)
-                time_total_mem_init = 0.0
+                time_total_time_mem = 0.0
                 for tup in results_tuple:
                     result += tup[2]
-                    time_total_mem_init += tup[1]
+                    time_total_time_mem += tup[1]
                 time_total = time.time() - time_start
                 print_results(
-                    f"{func.__name__}({cores}/{CORES})",
+                    f"{func.__name__}",
                     time_total,
-                    time_total_mem_init / cores,
+                    time_total_time_mem / cores,
                     result,
                 )
         cores = cores // 2

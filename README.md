@@ -2,6 +2,15 @@
 
 Measuring the time to summarize one hundred million integers, using native Python, a C extension and NymPy.
 
+## C reference
+
+Single process naive C implementation wall clock time ~ 0.360s
+
+```sh
+make sum
+time ./sum
+```
+
 ## Usage
 
 - Make sure you have the Python dev libraries installed, on Ubuntu: `sudo apt-get install python3-dev`
